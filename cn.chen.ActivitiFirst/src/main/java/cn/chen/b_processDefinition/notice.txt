@@ -1,0 +1,5 @@
+RepositoryService.java文件说明：
+RepositoryService repositoryService = processEngine.getRepositoryService();
+对于repositoryService各种方法的说明
+包括获取流程定义对象，主要关联数据表为act_re_procdef
+包括根据不同的条件查询流程定义对象，删除流程定义对象，查询部署对象资源文件等方法
