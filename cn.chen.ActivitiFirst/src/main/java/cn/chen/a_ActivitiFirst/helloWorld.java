@@ -63,7 +63,7 @@ public class helloWorld {
 	 */
 	@Test
 	public void completeMytask() {
-		String taskId="17504";
+		String taskId="52505";
 		processEngine.getTaskService()		//获取当前任务对象
 							.complete(taskId);
 		System.out.println(taskId+"任务已完成!");

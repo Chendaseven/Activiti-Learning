@@ -77,6 +77,5 @@ public class VariableTest {
 				System.out.println(historicVariableInstance.getValue());
 			}
 		}
-		
 	}
 }
