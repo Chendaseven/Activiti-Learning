@@ -1,0 +1,4 @@
+分配组任务的三种方式：
+一、在bpmn中直接在Candidate users中指定，并且使用逗号隔开，例如：A,B,C,D
+二、同样使用流程变量，Candidate users中使用#{userId},然后添加流程变量
+三、同样使用接口监听类

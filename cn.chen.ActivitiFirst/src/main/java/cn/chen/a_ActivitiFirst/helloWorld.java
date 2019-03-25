@@ -6,6 +6,7 @@ import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.runtime.ProcessInstanceQuery;
 import org.activiti.engine.task.Task;
 import org.junit.Test;
 
@@ -25,8 +26,8 @@ public class helloWorld {
 						.addClasspathResource("diagrams/Helloworld.bpmn") //加入bpmn文件，部署需要加入两个文件，但是此方法一次只能加入一个文件
 						.addClasspathResource("diagrams/Helloworld.png")  //加入png文件
 						.deploy();	//执行部署方法
-		System.out.println("部署id"+deploy.getId());
-		System.out.println("部署名称"+deploy.getName());
+		System.out.println("部署id："+deploy.getId());
+		System.out.println("部署名称："+deploy.getName());
 	}
 	/**
 	 * 启动流程实例，流程启动之后，会在act_ru_task中随机产生流程id等数据
@@ -39,6 +40,20 @@ public class helloWorld {
 		System.out.println("流程实例id"+processInstance.getId());
 		System.out.println("流程实例名称"+processInstance.getName());
 	}
+	
+	@Test
+	public void findProcessInstance() {
+		String processDefinitionKey = "helloworld";
+		ProcessInstanceQuery processInstanceQuery = processEngine.getRuntimeService().createProcessInstanceQuery();
+		ProcessInstance singleResult = processInstanceQuery.processDefinitionKey(processDefinitionKey).singleResult();
+		System.out.println(singleResult.getId());
+		System.out.println(singleResult.getName());
+		System.out.println(singleResult.getActivityId());
+		System.out.println(singleResult.getProcessInstanceId());
+		System.out.println(singleResult.getProcessDefinitionId());
+		System.out.println(singleResult.getBusinessKey());
+	}
+	
 	
 	/**
 	 * 获取当前流程个人任务，此时在act_ru_task中搜索对应任务

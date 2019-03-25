@@ -1,0 +1,4 @@
+分配个人任务的三种方式：
+一、直接使用流程图中的Assignee指定
+二、在流程图中的Assignee中使用流程变量：#{userID}，然后在流程实例中添加流程变量，指定签合人
+三、使用类方式指定签合人，此时流程图中的Assignee为空,在bpmn中的Listeners中将此类加入到Task listeners中,Event为“create”，详情见代码
